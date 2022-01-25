@@ -79,4 +79,18 @@ app.post("/carOut",veryfyIfUserExists,(request,response)=>{
     }
     users.relatorio.push(getOut);
     return response.status(201).json({message:"car out garage"})
+});
+
+
+app.put("/user",veryfyIfUserExists,(request,response)=>{
+const {users}=request;
+const {name,carModel,cor}=request.body;
+
+users.name=name;
+users.carModel= carModel;
+users.cor= cor;
+
+return response.status(201).json({message:"changing status ok"});
+
+
 })
